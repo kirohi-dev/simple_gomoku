@@ -4,7 +4,10 @@ add_subdirectory(../../extern/pybind11 extern/pybind11)
 add_library(gomoku gomoku.cpp)
 
 # 対象をpythonにbindする
-pybind11_add_module(gomoku_lib lib.cpp)
+pybind11_add_module(gomoku_lib STATIC
+  lib.cpp
+  stone.cpp
+)
 
 target_link_libraries(gomoku_lib PRIVATE gomoku)
 
