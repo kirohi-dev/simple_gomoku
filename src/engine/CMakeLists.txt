@@ -1,12 +1,11 @@
 # pybind11をCMakeListsの探査範囲に追加
 add_subdirectory(../../extern/pybind11 extern/pybind11)
 
-add_library(gomoku gomoku.cpp)
+add_library(gomoku STATIC gomoku.cpp stone.cpp)
 
 # 対象をpythonにbindする
-pybind11_add_module(gomoku_lib STATIC
+pybind11_add_module(gomoku_lib
   lib.cpp
-  stone.cpp
 )
 
 target_link_libraries(gomoku_lib PRIVATE gomoku)
