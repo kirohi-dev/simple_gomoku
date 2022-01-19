@@ -1,3 +1,9 @@
+#ifndef GOMOKU_STONE_H
+#define GOMOKU_STONE_H
+
+#include <system_error>
+#include "error.hpp"
+
 namespace gomoku {
   class stone
   {
@@ -13,14 +19,37 @@ namespace gomoku {
   };
 } // namespace gomoku
 
-gomoku::stone::stone(int color_value)
+inline gomoku::stone::stone(int color_value)
 {
-  if (!this->validate(color_value)) 
+  if (!this->validate(color_value))
+  {
+    std::error_code ec = make_error_code(gomoku::future_errc::invlid_stone_value);
+    throw std::system_error{ec};
+  }
   this->color_value_ = color_value;
 }
 
-bool gomoku::stone::validate(int color_value)
+inline gomoku::stone::~stone(){};
+
+inline void gomoku::stone::set(int color_value)
+{
+  if (!this->validate(color_value))
+  {
+    std::error_code ec = make_error_code(gomoku::future_errc::invlid_stone_value);
+    throw std::system_error{ec};
+  }
+  this->color_value_ = color_value;
+}
+
+inline bool gomoku::stone::validate(int color_value)
 {
   if (color_value == 1 || color_value == 2 || color_value == 0) return true;
   return false;
 }
+
+inline int gomoku::stone::get() const noexcept
+{
+  return this->color_value_;
+}
+
+#endif // GOMOKU_STONE_H

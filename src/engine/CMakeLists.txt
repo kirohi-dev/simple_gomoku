@@ -5,7 +5,6 @@ add_subdirectory(../../extern/pybind11 extern/pybind11)
 
 add_library(gomoku STATIC
   gomoku.cpp
-  stone.cpp
   error.cpp
 )
 
