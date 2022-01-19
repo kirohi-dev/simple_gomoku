@@ -30,6 +30,17 @@ ELSE()
   message( SEND_ERROR "please create venv on your project with the name .venv")
 ENDIF()
 
+# generate stub
+IF(EXISTS "${PROJECT_SOURCE_DIR}/.venv/lib/python3.9/site-packages/pybind11_stubgen")
+  add_custom_command(TARGET gomoku_lib
+    POST_BUILD
+    COMMAND pipenv run pybind11-stubgen -o .types gomoku_engine
+    WORKING_DIRECTORY "${PROJECT_SOURCE_DIR}"
+  )
+ELSE()
+  message( SEND_ERROR "please install pipenv dipendency")
+ENDIF()
+
 add_executable(gomoku_exe ex.cpp)
 
 target_link_libraries(gomoku_exe PRIVATE

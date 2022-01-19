@@ -1,6 +1,7 @@
 import gomoku_engine
 import PySimpleGUI as sg
 
+
 sg.theme("DarkAmber")
 layout = [[sg.Text("some test on row 1")], [sg.Text("tenter"), sg.InputText()], [sg.Button("OK"), sg.Button("Cancel")]]
 
