@@ -34,7 +34,7 @@ ENDIF()
 IF(EXISTS "${PROJECT_SOURCE_DIR}/.venv/lib/python3.9/site-packages/pybind11_stubgen")
   add_custom_command(TARGET gomoku_lib
     POST_BUILD
-    COMMAND pipenv run pybind11-stubgen -o .types gomoku_engine
+    COMMAND pipenv run stubgen
     WORKING_DIRECTORY "${PROJECT_SOURCE_DIR}"
   )
 ELSE()

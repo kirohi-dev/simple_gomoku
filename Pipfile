@@ -3,6 +3,9 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 name = "pypi"
 
+[scripts]
+stubgen = "pybind11-stubgen  gomoku_engine -o .types"
+
 [packages]
 pybind11 = "==2.9.0"
 pysimplegui = "*"
