@@ -6,6 +6,7 @@ name = "pypi"
 [packages]
 pybind11 = "==2.9.0"
 pysimplegui = "*"
+pybind11-stubgen = "*"
 
 [dev-packages]
 black = "*"

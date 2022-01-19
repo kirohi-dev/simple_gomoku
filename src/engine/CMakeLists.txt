@@ -1,7 +1,13 @@
+set(CMAKE_CXX_STANDARD 17)
+
 # pybind11をCMakeListsの探査範囲に追加
 add_subdirectory(../../extern/pybind11 extern/pybind11)
 
-add_library(gomoku STATIC gomoku.cpp stone.cpp)
+add_library(gomoku STATIC
+  gomoku.cpp
+  stone.cpp
+  error.cpp
+)
 
 # 対象をpythonにbindする
 pybind11_add_module(gomoku_lib
@@ -23,3 +29,9 @@ IF(EXISTS "${PROJECT_SOURCE_DIR}/.venv")
 ELSE()
   message( SEND_ERROR "please create venv on your project with the name .venv")
 ENDIF()
+
+add_executable(gomoku_exe ex.cpp)
+
+target_link_libraries(gomoku_exe PRIVATE
+  gomoku
+)

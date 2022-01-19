@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "9516311e2c98d9636ff239d53c3a063685491faf4ffbb2d43fbc0c4648bf7f5c"
+            "sha256": "470adb5ef9b0bf94e41ec74fcfe8fbea3338e5c2d8e69efff10b5abc37994efd"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -23,6 +23,14 @@
             ],
             "index": "pypi",
             "version": "==2.9.0"
+        },
+        "pybind11-stubgen": {
+            "hashes": [
+                "sha256:272e4289c0ca01822984dbcd52faaddb14bf8364474b641246d003bc4b2042ec",
+                "sha256:c20293968d6c0879502b00f1bad5188ac7b8295f288ee4fec0e8c5055b75a02e"
+            ],
+            "index": "pypi",
+            "version": "==0.10.5"
         },
         "pysimplegui": {
             "hashes": [
