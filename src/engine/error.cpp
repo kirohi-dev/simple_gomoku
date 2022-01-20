@@ -3,7 +3,7 @@
 
 namespace std {
   template <>
-  struct is_error_code_enum<gomoku::future_errc> : true_type {};
+  struct is_error_code_enum<gomoku::FutureErrc> : true_type {};
 }
 
 class future_cat : public std::error_category {
@@ -13,9 +13,9 @@ class future_cat : public std::error_category {
     }
 
     std::string message(int ec) const override {
-        switch (static_cast<gomoku::future_errc>(ec))
+        switch (static_cast<gomoku::FutureErrc>(ec))
         {
-        case gomoku::future_errc::invlid_stone_value:
+        case gomoku::FutureErrc::invlid_stone_value:
           return "future_error: invlid_stone_value";
         default:
           return "bad futurecat code";
@@ -28,7 +28,7 @@ std::error_category const& future_category() noexcept {
   return obj;
 }
 
-std::error_code gomoku::make_error_code(gomoku::future_errc e) noexcept
+std::error_code gomoku::make_error_code(gomoku::FutureErrc e) noexcept
 {
   return std::error_code{static_cast<int>(e), future_category()};
 }

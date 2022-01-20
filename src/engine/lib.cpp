@@ -5,7 +5,7 @@
 
 void error_test()
 {
-  std::error_code ec = gomoku::make_error_code(gomoku::future_errc::invlid_stone_value);
+  std::error_code ec = gomoku::make_error_code(gomoku::FutureErrc::invlid_stone_value);
   throw std::system_error(ec, "system error");
 }
 
