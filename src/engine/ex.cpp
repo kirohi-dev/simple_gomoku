@@ -6,8 +6,6 @@
 
 int main()
 {
-  gomoku::Stone st(gomoku::Color::empty);
-  std::cout << static_cast<int>(st.get()) << std::endl;
   try {
     std::error_code ec = gomoku::make_error_code(gomoku::FutureErrc::invlid_stone_value);
     throw std::system_error(ec, "system error");
