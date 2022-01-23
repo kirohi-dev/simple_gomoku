@@ -20,7 +20,7 @@ namespace gomoku {
       Board();
       virtual ~Board();
       void set_stone(Stone stone, int row, int column);
-      types::Board  get_board();
+      types::Board& get_board();
   };
 } // namespace gomoku
 
@@ -41,7 +41,7 @@ inline void gomoku::Board::set_stone(Stone stone, int row, int column)
   this->board_[row][column] = stone;
 }
 
-inline gomoku::types::Board gomoku::Board::get_board()
+inline gomoku::types::Board& gomoku::Board::get_board()
 {
   return this->board_;
 }
