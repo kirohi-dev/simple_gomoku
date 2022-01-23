@@ -7,10 +7,9 @@
 
 namespace gomoku {
   namespace types {
-    struct Board {
-      std::array<std::array<Stone, 15>, 15> board;
-    };
+    using Board = std::array<std::array<Stone, 15>, 15>;
   }
+  
 
   class Board
   {
@@ -21,7 +20,7 @@ namespace gomoku {
       Board();
       virtual ~Board();
       void set_stone(Stone stone, int row, int column);
-      types::Board* get_board();
+      types::Board  get_board();
   };
 } // namespace gomoku
 
@@ -30,7 +29,7 @@ namespace gomoku {
 inline gomoku::Board::Board() {
   for (int i = 0;i < 15; i++) {
    for (int k = 0; k < 15; k++) {
-     this->board_.board[i][k] = Stone::empty;
+     this->board_[i][k] = Stone::empty;
    }
   }
 };
@@ -39,11 +38,11 @@ inline gomoku::Board::~Board() {};
 
 inline void gomoku::Board::set_stone(Stone stone, int row, int column)
 {
-  this->board_.board[row][column] = stone;
+  this->board_[row][column] = stone;
 }
 
-inline gomoku::types::Board* gomoku::Board::get_board()
+inline gomoku::types::Board gomoku::Board::get_board()
 {
-  return &board_;
+  return this->board_;
 }
 
