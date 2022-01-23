@@ -4,7 +4,6 @@ set(CMAKE_CXX_STANDARD 17)
 add_subdirectory(../../extern/pybind11 extern/pybind11)
 
 add_library(gomoku STATIC
-  gomoku.cpp
   error.cpp
 )
 

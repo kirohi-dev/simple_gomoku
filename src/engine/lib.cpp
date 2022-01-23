@@ -12,6 +12,5 @@ void error_test()
 PYBIND11_MODULE(gomoku_engine, m)
 {
   m.doc() = "engine module";
-  m.def("add", &add, "add two numbers");
   m.def("error_test", &error_test, "test error");
 }
