@@ -5,6 +5,8 @@ add_subdirectory(../../extern/pybind11 extern/pybind11)
 
 add_library(gomoku STATIC
   error.cpp
+  gomoku.cpp
+  validator.cpp
 )
 
 # 対象をpythonにbindする

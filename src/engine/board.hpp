@@ -24,7 +24,6 @@ namespace gomoku {
   };
 } // namespace gomoku
 
-#endif // GOMOKU_BOARD_H
 
 inline gomoku::Board::Board() {
   for (int i = 0;i < 15; i++) {
@@ -46,3 +45,4 @@ inline gomoku::types::Board& gomoku::Board::get_board()
   return this->board_;
 }
 
+#endif // GOMOKU_BOARD_H
