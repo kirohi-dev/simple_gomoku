@@ -17,6 +17,7 @@ namespace gomoku {
   {
     private:
       SurroundStones surround_stones;
+      types::Board next_board;
       void set_surround_stones(int row, int column, types::Board& board);
       void probe_board(int row, int column, int right, int under,std::vector<Stone> direction, types::Board& board);
       bool second_move(int moves, int row, int column);
